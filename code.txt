@@ -1,0 +1,473 @@
+CLS
+SCREEN 12
+LOCATE 12, 25
+PRINT "INITIATING SYSTEM"
+                                 
+LINE (0, 195)-(60, 195), 15
+LINE (0, 270)-(490, 270), 15
+LINE (490, 270)-(510, 240), 15
+LINE (510, 240)-(635, 240), 15
+LINE (80, 160)-(510, 160), 15
+LINE (510, 160)-(530, 190), 15
+LINE (635, 160)-(620, 160), 15
+LINE (530, 190)-(600, 190), 15
+LINE (620, 160)-(600, 190), 15
+LINE (80, 160)-(60, 195), 15
+LINE (0, 210)-(635, 210), 15
+FOR i = 5 TO 30
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+    LINE (i, 220)-(i, 260), 15, B
+NEXT i
+FOR i = 35 TO 60
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+
+NEXT i
+FOR i = 65 TO 90
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+
+NEXT i
+FOR i = 95 TO 120
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 125 TO 150
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+
+NEXT i
+FOR i = 155 TO 180
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 185 TO 210
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 215 TO 240
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 245 TO 270
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 275 TO 300
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 305 TO 330
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 335 TO 360
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 365 TO 390
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 395 TO 420
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 425 TO 450
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+FOR i = 455 TO 480
+    LINE (i, 220)-(i, 260), 15, B
+    LOCATE 12, 50
+    a = (i / 480) * 100
+    a = INT(a)
+    PRINT "Loading"; a; "%"
+NEXT i
+usertype:
+CLS
+CLS
+LINE (100, 100)-(500, 375), 6, B
+LOCATE 10, 30
+PRINT "Select user type"
+LOCATE 14, 20
+PRINT "1. General user"
+LOCATE 17, 20
+PRINT "2. Admin user"
+LOCATE 21, 20
+INPUT "Enter an option"; op
+SELECT CASE op
+    CASE 1
+general:
+        CLS
+        LINE (100, 100)-(500, 375), 5, B
+        LOCATE 10, 30
+        PRINT "Select an option"
+        LOCATE 14, 20
+        PRINT "1. Display record"
+        LOCATE 17, 20
+        PRINT "2. Exit program"
+        LOCATE 21, 20
+        INPUT "Enter a choice"; op
+        SELECT CASE op
+            CASE 1
+                CALL search
+                PRINT "Press a key to continue..."
+                z$ = INPUT$(1)
+                GOTO general
+            CASE 2
+                CALL ext
+            CASE ELSE
+                LOCATE 11, 25
+                COLOR 4
+                PRINT "Invalid option chosen"
+                COLOR 15
+                LOCATE 23, 20
+                PRINT "Press a key to continue"
+                z$ = INPUT$(1)
+                GOTO general
+        END SELECT
+    CASE 2
+        CLS
+        LINE (100, 100)-(500, 375), 9, B
+        LOCATE 9, 28
+        PRINT "Enter login details"
+        LOCATE 15, 20
+        INPUT "Enter username"; u$
+        LOCATE 19, 20
+        PRINT "Enter password";
+        d$ = ""
+        DO
+            a$ = INPUT$(1)
+            IF ASC(a$) <> 8 AND ASC(a$) <> 13 THEN
+                d$ = RTRIM$(d$)
+                d$ = d$ + "*"
+                LOCATE 19, 36
+                PRINT d$;
+                pw$ = pw$ + a$
+            ELSEIF ASC(a$) = 8 AND LEN(d$) > 1 THEN
+                d$ = RTRIM$(d$)
+                f$ = d$
+                d$ = ""
+                FOR i = 1 TO LEN(f$) - 1
+                    d$ = d$ + "*"
+                    b$ = MID$(opw$, i, 1)
+                    e$ = e$ + b$
+                NEXT i
+                pw$ = e$
+                e$ = ""
+                d$ = d$ + " "
+                LOCATE 19, 36
+                PRINT d$;
+                END IF
+                LOOP WHILE ASC(a$) <> 13
+                PRINT
+                IF u$ = "computer" AND pw$ = "project" THEN
+choices:
+                    CLS
+                    LINE (100, 100)-(500, 375), 12, B
+                    LOCATE 9, 28
+                    PRINT "Select an option"
+                    LOCATE 11, 20
+                    PRINT "1. Add record"
+                    LOCATE 13, 20
+                    PRINT "2. Display record"
+                    LOCATE 15, 20
+                    PRINT "3. Modify record"
+                    LOCATE 17, 20
+                    PRINT "4. Delete record"
+                    LOCATE 19, 20
+                    PRINT "5. Exit the program"
+                    LOCATE 21, 20
+                    INPUT "Enter an option"; op
+                    SELECT CASE op
+                        CASE 1
+                            CALL add
+                            PRINT "Press a key to continue..."
+                            z$ = INPUT$(1)
+                            GOTO choices
+
+                        CASE 2
+                            CALL search
+                            PRINT "Press a key to continue..."
+                            z$ = INPUT$(1)
+                            GOTO choices
+
+                        CASE 3
+                            CALL modify
+                            PRINT "Press a key to continue..."
+                            z$ = INPUT$(1)
+                            GOTO choices
+
+                        CASE 4
+                            CALL delete
+                            PRINT "Press a key to continue..."
+                            z$ = INPUT$(1)
+                            GOTO choices
+
+                        CASE 5
+                            CALL ext
+                        CASE ELSE
+                            LOCATE 10, 29
+                            COLOR 4
+                            PRINT "Invalid option"
+                            COLOR 15
+                            LOCATE 23, 20
+                            PRINT "Press a key to continue..."
+                            z$ = INPUT$(1)
+                            GOTO choices
+                    END SELECT
+                ELSE
+                    LOCATE 11, 24
+                    COLOR 4
+                    PRINT "Invalid username or password"
+                    COLOR 15
+                    LOCATE 23, 20
+                    PRINT "Press a key to continue"
+                    z$ = INPUT$(1)
+                    GOTO usertype
+                END IF
+    CASE ELSE
+        LOCATE 11, 25
+        COLOR 4
+        PRINT "Invalid option"
+        COLOR 15
+        LOCATE 23, 20
+        PRINT "Press a key to continue..."
+        z$ = INPUT$(1)
+        GOTO usertype
+END SELECT
+END
+
+SUB add
+    OPEN "food.dat" FOR APPEND AS #1
+    CLS
+    DO
+        CLS
+        LINE (100, 100)-(600, 440), 13, B
+        LOCATE 9, 28
+        PRINT "Enter the Information"
+        LOCATE 12, 16
+        INPUT "Enter dish symbol number"; sn
+        LOCATE 15, 16
+        INPUT "Enter dish name"; n$
+        LOCATE 18, 16
+        INPUT "Enter dish's genre"; g$
+        LOCATE 21, 16
+        INPUT "Enter dish's price"; p
+        locate 23,16
+        INPUT "Do you want to add more records"; yn$
+        LOCATE 27, 16
+        WRITE #1, sn, n$, g$, p
+   LOOP WHILE LCASE$(yn$) = "y"
+   CLOSE
+END SUB
+
+SUB delete
+    CLS
+    
+    OPEN "food.dat" FOR INPUT AS #2
+    open "nfood.dat" FOR APPEND AS #1
+    login3:
+        cls
+        LINE (100, 100)-(500, 375), 12, B
+        LOCATE 9, 28
+        PRINT "Enter login details"
+        LOCATE 15, 20
+        INPUT "Enter registration number"; csn
+    WHILE NOT EOF(2)
+        INPUT #2, sn, n$, g$, p
+        IF csn = sn THEN
+            CLS
+            LINE (100, 100)-(500, 375), 8, B
+            LOCATE 9, 30
+            PRINT "Food details"
+            LOCATE 14, 20
+            PRINT "Symbol number: "; sn
+            LOCATE 16, 20
+            PRINT "Food Name: ";
+            LOCATE 16, 42
+            PRINT n$
+           LOCATE 18, 20
+            PRINT "Food genre: "
+            LOCATE 18, 42
+            PRINT g$
+            LOCATE 20, 20
+            PRINT "Price: "
+            LOCATE 20, 42
+            PRINT p
+            LOCATE 23, 20
+            Input "Do you want to delete this record";yn$
+            if yn$="y" then
+                LOCATE 11, 30
+                COLOR 2
+                PRINT "Deleted record!"
+                COLOR 15
+                LOCATE 23, 20
+                PRINT
+                LOCATE 23, 20
+            ELSE
+                write #1, sn,n$,g$,p
+            end if
+            flag=1
+        ELSE
+            WRITE #1, sn,n$,g$,p
+        END IF
+    WEND
+     IF flag=0 then
+        LOCATE 10,28
+        COLOR 4
+        PRINT "Invalid symbol number"
+        COLOR 15
+        locate 27,16
+        PRINT "Press a key to continue..."
+        LOCATE 27,16
+        z$ = INPUT$(1)
+        GOTO login3
+    END IF  
+    CLOSE 
+END SUB
+
+SUB ext
+    CLS
+    LINE (100, 100)-(500, 375), 13, B
+    LOCATE 16, 17
+    PRINT "Thank you for using the menu drien program!"
+END SUB
+    
+SUB modify
+    CLS
+    OPEN "nfood.dat" FOR APPEND AS #1
+    OPEN "food.dat" FOR INPUT AS #2
+login:
+    CLS
+    LINE (100, 100)-(500, 375), 12, B
+    LOCATE 9, 28
+    PRINT "Enter login details"
+    LOCATE 15, 20
+    INPUT "Enter registration number"; csn
+    WHILE NOT EOF(2)
+        INPUT #2, sn, n$, g$, p
+        IF csn = sn THEN
+            CLS
+            LINE (100, 100)-(600, 440), 13, B
+            LOCATE 10, 28
+            PRINT "Enter the Information"
+            LOCATE 15, 16
+            INPUT "Enter dish new name"; nn$
+            LOCATE 18, 16
+            INPUT "Enter dish's new genre"; ng$
+            LOCATE 21, 16
+            INPUT "Enter dish's new price"; np
+            LOCATE 27, 16
+            IF nn$="" THEN nn$ = n$
+            IF ng$="" THEN ng$ = n$
+            IF np=0 then np = p
+            WRITE #1, sn, nn$, ng$, np 
+            flag = 1      
+        END IF
+    WEND
+    IF flag=0 then
+        LOCATE 10,28
+        COLOR 4
+        PRINT "Invalid symbol number"
+        COLOR 15
+        locate 27,16
+        PRINT "Press a key to continue..."
+        LOCATE 27,16
+        z$ = INPUT$(1)
+        GOTO login
+    END IF
+END SUB
+
+SUB search
+    CLS
+    login2:
+    OPEN "food.dat" FOR INPUT AS #2
+        LINE (100, 100)-(500, 375), 12, B
+        LOCATE 9, 28
+        PRINT "Enter login details"
+        LOCATE 15, 20
+        INPUT "Enter registration number"; csn
+    WHILE NOT EOF(2)
+        INPUT #2, sn, n$, g$, p
+        IF csn = sn THEN
+            CLS
+            LINE (100, 100)-(500, 375), 8, B
+            LOCATE 10, 30
+            PRINT "Food details"
+            LOCATE 14, 20
+            PRINT "Symbol number: "; sn
+            LOCATE 16, 20
+            PRINT "Food Name: ";
+            LOCATE 16, 42
+            PRINT n$
+           LOCATE 18, 20
+            PRINT "Food genre: "
+            LOCATE 18, 42
+            PRINT g$
+            LOCATE 20, 20
+            PRINT "Price: "
+            LOCATE 20, 42
+            PRINT p
+            LOCATE 23, 20
+            flag=1
+        END IF
+    WEND
+     IF flag=0 then
+        LOCATE 10,28
+        COLOR 4
+        PRINT "Invalid symbol number"
+        COLOR 15
+        locate 27,16
+        PRINT "Press a key to continue..."
+        LOCATE 27,16
+        z$ = INPUT$(1)
+        GOTO login2
+    END IF
+END SUB
