@@ -1,0 +1,6 @@
+SUB ext
+    CLS
+    LINE (100, 100)-(500, 375), 13, B
+    LOCATE 16, 17
+    PRINT "Thank you for using the menu drien program!"
+END SUB
